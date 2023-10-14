@@ -13,18 +13,22 @@ export function ThemeProvider ({children} : {
         const [mode,setMode] = useState('');
 
         const handleThemeChange = () => {
-            if (mode === 'dark') {
-                setMode('light');
-                document.documentElement.classList.add('light');
-            } else {
+            if (localStorage.theme === 'dark' || (!("theme" in localStorage)&& window.matchMedia("(prefers-color-scheme : dark)").matches) 
+            ) {
                 setMode('dark');
                 document.documentElement.classList.add('dark');
+            } else {
+                setMode('light');
+                document.documentElement.classList.remove('dark');
             }
         }
 
-        useEffect (() => {
+        useEffect(() => {
             handleThemeChange();
-        }, [mode])
+        },[mode])
+
+        console.log('MODE', mode);
+
 
         return (
             <ThemeContext.Provider value={{mode , setMode}}>
