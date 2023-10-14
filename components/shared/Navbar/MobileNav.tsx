@@ -18,7 +18,7 @@ const NavContent = () => {
 
     const pathname = usePathname()
     return (
-        <section className='flex h-full flex-col gap-6 pt-16 '>
+        <section className='flex h-full flex-col gap-6 pt-16'>
             {sidebarLinks.map((item) => {
                 const isActive = (pathname.includes(item.route) && item.route.length > 1) || pathname === item.route;
 
@@ -52,9 +52,9 @@ const MobileNav = () => {
          <Image src='./assets/images/site-logo.svg' width={23} height={23} alt='Devflow'/>
 
          <p className='h2-bold text-dark-100 dark:text-white'>Dev <span className='text-primary-500'>Flow</span></p>
-        </Link>
+    </Link>
 
-        <div className='overflow-scroll'>
+        <div className='overflow-y-auto '>
             <SheetClose asChild>
                 <NavContent />
             </SheetClose>
