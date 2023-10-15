@@ -20,6 +20,7 @@ import { useForm } from "react-hook-form";
 import { QuestionSchema } from "@/lib/validations";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import { createQuestion } from "@/lib/actions/question.action";
 
 
 const type:any = 'create'
@@ -39,11 +40,11 @@ const Question = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof QuestionSchema>) {
+  async function onSubmit(values: z.infer<typeof QuestionSchema>) {
     setIsSubmitting(true);
 
     try {
-      
+      await createQuestion({});
     } catch (error) {
       
     } finally {
