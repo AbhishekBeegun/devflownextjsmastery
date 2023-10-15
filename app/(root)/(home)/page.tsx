@@ -3,8 +3,53 @@ import LocalSearchBar from "@/components/shared/Search/LocalSearchBar";
 import { Button } from "@/components/ui/button";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { HomePageFilters } from "@/constants/filters";
+import HomeFilters from "@/components/home/HomeFilters";
+import NoResult from "@/components/shared/NoResult/NoResult";
+import QuestionCard from "@/components/cards/QuestionCard";
  
 export default function Home() {
+
+  const questions = [
+    {
+      id: '1',
+      title: 'What is a Server Component?',
+      upvotes: 1000,
+      views: 52,
+      answers: [
+          { text: 'A server component is...', author: 'John' },
+          { text: 'Server components are...', author: 'Alice' },
+      ],
+      tags: [
+          { id: '1', name: 'Java' },
+          { id: '2', name: 'React' },
+      ],
+      author: {
+          id: '101',
+          name: 'Abhishek',
+          picture: 'abhishek.jpg',
+      },
+  },
+  {
+      id: '2',
+      title: 'P tag Inside div!',
+      upvotes: 2,
+      views: 20000,
+      answers: [
+          { text: 'To use a p tag...', author: 'Sarah' },
+          { text: 'Div is a block...', author: 'David' },
+      ],
+      tags: [
+          { id: '3', name: 'HTML' },
+          { id: '4', name: 'JavaScript' },
+      ],
+      author: {
+          id: '102',
+          name: 'Eric',
+          picture: 'eric.jpg',
+      },
+  },
+  ]
   return (
     <>  
     <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -27,7 +72,36 @@ export default function Home() {
       OtherClasses="flex-1"/>
 
 
-      <FilterSearch/>
+      <FilterSearch
+      filters={HomePageFilters}
+      OtherClasses='min-h-[56px] sm:min-w-[170px]'
+      containerClasses='hidden max-md:flex'
+      />
+
+      <HomeFilters />
+
+      <div className="mt-10 flex w-full flex-col gap-6">
+        {questions.length > 0 ?
+        questions.map((question) => (
+          <QuestionCard 
+          key={question.id}
+          id={question.id}
+          title={question.title}
+          upvotes={question.upvotes}
+          author={question.author}
+          views = {question.views}
+          tags={question.tags}
+          answers={question.answers}
+           /> 
+        )) :
+        <NoResult
+        title='Theres no question to show'
+        desc='Be the first to break the silence!Ask a question and kickstart the discussion. our query could be the next big thing other learn from, Get Involved'
+        btn='Ask a Question'
+        route='/ask-question' /> 
+        }
+        
+      </div>
 
     </div>
     </>

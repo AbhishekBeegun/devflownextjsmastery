@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 
 
 interface Props {
-    id:number,
+    id:string,
     name:string,
     tq?:any,
     showCount?: boolean
