@@ -26,7 +26,7 @@ import { createQuestion } from "@/lib/actions/question.action";
 const type:any = 'create'
 
 
-const Question = () => {
+const  Question = () => {
   const editorRef = useRef(null);
   const [IsSubmitting, setIsSubmitting] = useState<boolean>(false);
 
@@ -127,6 +127,8 @@ const Question = () => {
           // @ts-ignore  
           editorRef.current = editor
         }}
+        onBlur={field.onBlur}
+        onEditorChange={(content) => field.onChange(content)}
          initialValue=""
          init={{
            height: 500,
