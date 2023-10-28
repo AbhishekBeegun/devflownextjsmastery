@@ -7,49 +7,14 @@ import { HomePageFilters } from "@/constants/filters";
 import HomeFilters from "@/components/home/HomeFilters";
 import NoResult from "@/components/shared/NoResult/NoResult";
 import QuestionCard from "@/components/cards/QuestionCard";
+import { getQuestions } from "@/lib/actions/question.action";
  
-export default function Home() {
+export default async function Home() {
 
-  const questions = [
-    {
-      id: '1',
-      title: 'What is a Server Component?',
-      upvotes: 1000,
-      views: 52,
-      answers: [
-          { text: 'A server component is...', author: 'John' },
-          { text: 'Server components are...', author: 'Alice' },
-      ],
-      tags: [
-          { id: '1', name: 'Java' },
-          { id: '2', name: 'React' },
-      ],
-      author: {
-          id: '101',
-          name: 'Abhishek',
-          picture: 'abhishek.jpg',
-      },
-  },
-  {
-      id: '2',
-      title: 'P tag Inside div!',
-      upvotes: 2,
-      views: 20000,
-      answers: [
-          { text: 'To use a p tag...', author: 'Sarah' },
-          { text: 'Div is a block...', author: 'David' },
-      ],
-      tags: [
-          { id: '3', name: 'HTML' },
-          { id: '4', name: 'JavaScript' },
-      ],
-      author: {
-          id: '102',
-          name: 'Eric',
-          picture: 'eric.jpg',
-      },
-  },
-  ]
+  const result = await getQuestions({});
+
+  console.log(result.questions)
+
   return (
     <>  
     <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -81,8 +46,8 @@ export default function Home() {
       <HomeFilters />
 
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ?
-        questions.map((question) => (
+        {result.questions.length > 0 ?
+        result.questions.map((question) => (
           <QuestionCard 
           key={question.id}
           id={question.id}

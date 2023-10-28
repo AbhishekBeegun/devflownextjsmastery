@@ -59,7 +59,7 @@ const QuestionCard = ({id,title,upvotes,views,answers,tags,author }:Props) => {
            <Metric
             imgUrl='/assets/icons/message.svg'
             alt='message'
-            value={formatBigNumber(answers.length)}
+            value={''}
             title='Answers'
             textstyles ='small-medium text-dark-400 dark:text-light-800 ' />
 
