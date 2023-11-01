@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 
-let isConnected:boolean = false ;
+let isConnected:boolean = false;
 
 export const connectToDB = async () => {
     mongoose.set('strictQuery',true);
 
-    if(!process.env.MONGODB_URL) return console.log('MISSO_ING MONGODB_URL');
+    if (!process.env.MONGODB_URL) return console.log('MISSO_ING MONGODB_URL');
 
-    if(isConnected) {
+    if (isConnected) {
        return console.log("MONGO already CONNECTED");
     }
 

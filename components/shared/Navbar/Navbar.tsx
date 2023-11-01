@@ -15,7 +15,6 @@ const Navbar = () => {
          <p className='h2-bold font-spaceGrotesk text-dark-100 dark:text-light-900 max-sm:hidden'>Dev <span className='text-primary-500'>FLow</span></p>
         </Link>
 
-        
         <GlobalSearch />
 
         <div className='flex-between gap-5'>
@@ -25,10 +24,10 @@ const Navbar = () => {
               afterSignOutUrl="/"
               appearance={{
                 elements: {
-                    avatarBox : 'h-10 w-10'
+                  avatarBox: 'h-10 w-10'
                 },
                 variables: {
-                    colorPrimary : '#ff7000' 
+                  colorPrimary: '#ff7000'
                 }
               }}/>
             </SignedIn>

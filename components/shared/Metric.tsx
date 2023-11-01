@@ -1,9 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
 
-
 interface Props {
-  imgUrl :string ,
+  imgUrl :string,
   alt : string,
   value : string | number,
   title : string,
@@ -12,9 +11,9 @@ interface Props {
   href? : string
 }
 
-const Metric = ({imgUrl,alt,value,title,textstyles,isAuthor,href} : Props) => {
+const Metric = ({ imgUrl, alt, value, title, textstyles, isAuthor, href } : Props) => {
   return (
-    <div className='flex flex-center flex-wrap gap-1'>
+    <div className='flex-center flex flex-wrap gap-1'>
       <Image
       src={imgUrl}
       width={16}
@@ -27,10 +26,10 @@ const Metric = ({imgUrl,alt,value,title,textstyles,isAuthor,href} : Props) => {
         {value}
        </span>
 
-       <span className={`small-regular line-clamp-1`}>
+       <span className={'small-regular line-clamp-1'}>
        {title}
        </span>
-       
+
       </p>
     </div>
   )

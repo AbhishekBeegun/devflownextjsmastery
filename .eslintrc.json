@@ -1,3 +1,20 @@
 {
-  "extends": ["next/core-web-vitals","standard","plugin:tailwindcss/recommended","prettier"]
+  "extends": ["next/core-web-vitals","standard","plugin:tailwindcss/recommended"],
+  "rules": {
+    "quotes": "off",
+    "single-quotes": "off",
+    "double-quotes": "off",
+    "comma-dangle": "off",
+    "semi": "off",
+    "indent" : "off",
+    "key-spacing" : "off",
+    "no-trailing-spaces" : "off",
+    "no-multiple-empty-lines" : "off",
+    "object-curly-spacing" : "off",
+    "comma-spacing" : "off",
+    "space-before-function-paren" : "off",
+    "tailwindcss/no-custom-classname" : "off",
+    "no-multi-spaces" : "off",
+    "tailwindcss/classnames-order" : "off"
+  }
 }

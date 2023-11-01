@@ -17,6 +17,7 @@ export function formatBigNumber(num: number): string {
     factor = 1e3;
   } else {
     result = num.toString();
+    // eslint-disable-next-line no-unused-vars
     factor = 1;
   }
   

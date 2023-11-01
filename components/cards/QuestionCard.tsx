@@ -4,7 +4,6 @@ import RenderTag from '../shared/Tag/RenderTag'
 import Metric from '../shared/Metric'
 import { formatBigNumber } from '@/lib/utils'
 
-
 interface Props {
     id:string,
     title:string,
@@ -21,12 +20,12 @@ interface Props {
         picture : string,
     }
 }
-const QuestionCard = ({id,title,upvotes,views,answers,tags,author }:Props) => {
+const QuestionCard = ({ id, title, upvotes, views, answers, tags, author }:Props) => {
   return (
-    <div className='card-wrapper p-9 sm:px-11 rounded-[10px]'>
+    <div className='card-wrapper rounded-[10px] p-9 sm:px-11'>
         <div className='flex'>
             <Link href={`/question/${id}`}>
-             <h3 className='sm:h3-semibold base-semibold text-dark-200 dark:text-light-900 line-clamp-1 flex-1'>
+             <h3 className='sm:h3-semibold base-semibold line-clamp-1 flex-1 text-dark-200 dark:text-light-900'>
              {title}
              </h3>
             </Link>
@@ -48,7 +47,6 @@ const QuestionCard = ({id,title,upvotes,views,answers,tags,author }:Props) => {
             href={`/profile/${author.id}`}
             textstyles ='body-medium text-dark-400 dark:text-light-700 ' />
 
-            
             <Metric
             imgUrl='/assets/icons/like.svg'
             alt='upvote'

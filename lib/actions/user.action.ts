@@ -14,7 +14,7 @@ export async function getUserById(params  : any) {
 
         const user = await User.findOne({clerkId : userId});
 
-        return user ;
+        return user;
     } catch (error) {
         console.log(error)
         throw error
@@ -27,8 +27,6 @@ export async function createuser(userData : CreateUserParams) {
 
         const newUser = await User.create(User);
         return newUser
-
-       
     } catch (error) {
         console.log(error)
         throw error
@@ -46,7 +44,6 @@ export async function updateUser(userData : UpdateUserParams) {
         });
 
         revalidatePath(path)
-
     } catch (error) {
         console.log(error)
         throw error
@@ -60,12 +57,12 @@ export async function deleteUser(userId  : DeleteUserParams) {
 
    const user = await User.findOneAndDelete({clerkId});
 
-   if(!user) {
-    throw new Error ('User not found');
+   if (!user) {
+    throw new Error('User not found');
    }
 
-   //We have to delete everything that the user have
 
+   // eslint-disable-next-line no-unused-vars
    const userQuestionIds = await Question.find({author : user._id}).distinct('_id');
 
    await Question.deleteMany({ author : user._id})
@@ -75,7 +72,6 @@ export async function deleteUser(userId  : DeleteUserParams) {
 const deletedUser = await User.findByIdAndDelete(user._id);
 
 return deletedUser
-
     } catch (error) {
         console.log(error)
         throw error

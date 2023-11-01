@@ -31,7 +31,7 @@ export async function createQuestion(params : CreateQuestionParams) {
 
         const {title ,content ,tags ,author,path} = params; 
 
-        const question = await Question.create ( {
+        const question = await Question.create({
             title,
             content,
             author
@@ -39,8 +39,8 @@ export async function createQuestion(params : CreateQuestionParams) {
 
         const tagDocuments = [];
 
-        for( const tag of tags) {
-            const existingTag = await Tag.findOneAndUpdate (
+        for (const tag of tags) {
+            const existingTag = await Tag.findOneAndUpdate(
                 {name : {$regex : new RegExp(`^${tag}$`, "i")}},
                 {$setOnInsert : {name : tag} , $push : {question : question._id}},
                 {upsert : true, new:true}
