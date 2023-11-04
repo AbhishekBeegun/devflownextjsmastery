@@ -13,6 +13,8 @@ export async function POST (req: Request) {
     throw new Error('Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local')
   }
 
+
+
   // Get the headers
   const headerPayload = headers()
   const svix_id = headerPayload.get('svix-id')
@@ -50,6 +52,8 @@ export async function POST (req: Request) {
   }
 
   const eventType = evt.type
+
+  console.log({eventType})
 
   if (eventType === 'user.created') {
     const { id, email_addresses, image_url, username, first_name, last_name } = evt.data
